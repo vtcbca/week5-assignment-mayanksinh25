@@ -1,0 +1,42 @@
+import csv
+with open("c:\\sqlite3\\student.csv","w",newline="")as stud:
+    write=csv.writer(stud)
+    header=['SId','SName','City','Contact']
+    write.writerow(header)
+    rows=[
+          [1,'jay','Vyara',123456789],
+          [2,'shree','Surat',156642788],
+          [3,'ram','Bardoli',144164787],
+          [4,'radha','Navsari',3684456786],
+          [5,'krishna','Kadod',942566784]
+         ]
+    write.writerows(rows)
+    print('Record Inserted successful')
+
+ #5 records insert using user input
+
+    l=[]
+    for record in range(5):
+        n=int(input('Enter Student ID:'))
+        name=input('Enter Student Name: ')
+        city=input('Enter City Name: ')
+        contact=int(input('Enter Contact Number:'))
+        h=[n,name,city,contact]
+        l.append(h)
+    write.writerows(l)
+    print('Record Inserted successful')
+
+#Read this file using csv module and print it. 
+
+with open("c://sqlite3//student.csv","r",newline="")as stud:
+    read=csv.reader(stud)
+    for i in read:
+        print(i)
+
+#Reading and writting must be perform using python script.
+
+with open("c:\\sqlite3\\student.csv","r")as stud:
+    r=csv.DictReader(stud)
+    for i in r:
+        print(i)
+print()
